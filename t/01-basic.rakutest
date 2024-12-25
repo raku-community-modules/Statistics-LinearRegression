@@ -1,6 +1,8 @@
-use v6;
 use Test;
+
 use Statistics::LinearRegression :ALL;
+
+plan 9;
 
 my @x = 1,2,3;
 my @y = 2,4,6;
@@ -20,4 +22,5 @@ my LR $model .= new: @x, @y;
 is $slope, -1;
 is $intercept, 4;
 is $model.at(5), -1;
-done-testing;
+
+# vim: expandtab shiftwidth=4

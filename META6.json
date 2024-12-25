@@ -1,21 +1,27 @@
 {
-  "authors" : [
-    "Pawe\u0142 Szulc"
+  "auth": "zef:raku-community-modules",
+  "authors": [
+    "Paweł Szulc"
   ],
-  "build-depends" : [ ],
-  "depends" : [ ],
-  "description" : "simple linear regression",
-  "license" : "Artistic-2.0",
-  "name" : "Statistics::LinearRegression",
-  "perl" : "6.c",
-  "provides" : {
-    "Statistics::LinearRegression" : "lib/Statistics/LinearRegression.pm6"
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "simple linear regression",
+  "license": "Artistic-2.0",
+  "name": "Statistics::LinearRegression",
+  "perl": "6.c",
+  "provides": {
+    "Statistics::LinearRegression": "lib/Statistics/LinearRegression.rakumod"
   },
-  "resources" : [ ],
-  "source-url" : "git://github.com/hipek8/p6-Statistics-LinearRegression.git",
-  "test-depends" : [
-    "Test",
-    "Test::META"
+  "resources": [
   ],
-  "version" : "1.1.1"
+  "source-url": "https://github.com/raku-community-modules/Statistics-LinearRegression.git",
+  "tags": [
+    "STATISTICS",
+    "REGRESSION"
+  ],
+  "test-depends": [
+  ],
+  "version": "1.1.1"
 }

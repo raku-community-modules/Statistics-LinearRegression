@@ -1,4 +1,3 @@
-use v6;
 unit class Statistics::LinearRegression;
 
 sub prefix:<Σ> { [+]($^a);}
@@ -18,7 +17,7 @@ sub calc-intercept(@x, @y, $slope) is export(:ALL) {
 sub get-parameters(@x, @y) is export(:ALL) {
     my $slope = calc-slope(@x,@y);
     my $intercept = calc-intercept(@x,@y,$slope);
-    return ($slope, $intercept);
+    ($slope, $intercept)
 }
 
 sub value-at($x, $slope, $intercept) is export(:ALL) {
@@ -47,6 +46,7 @@ class LR is export {
     }
 
 }
+
 =begin pod
 
 =head1 NAME
@@ -57,28 +57,40 @@ Statistics::LinearRegression - simple linear regression
 
 Gather some data
 
-  my @arguments = 1,2,3;
-  my @values = 3,2,1;
+=begin code :lang<raku>
+
+my @arguments = 1,2,3;
+my @values = 3,2,1;
+
+=end code
 
 Build model and predict value for some x using object
 
-  use Statistics::LinearRegression;
-  my $x = 15;
-  my $y = my LR.new(@arguments, @values).at($x);
+=begin code :lang<raku>
+
+use Statistics::LinearRegression;
+my $x = 15;
+my $y = my LR.new(@arguments, @values).at($x);
+
+=end code
 
 If you prefer bare functions, use :ALL
 
-  use Statistics::LinearRegression :ALL;
-  my ($slope, $intercept) = get-parameters(@arguments, @values);
-  my $x = 15;
-  my $y = value-at($x, $slope, $intercept);
+=begin code :lang<raku>
 
+use Statistics::LinearRegression :ALL;
+my ($slope, $intercept) = get-parameters(@arguments, @values);
+my $x = 15;
+my $y = value-at($x, $slope, $intercept);
+
+=end code
 
 =head1 DESCRIPTION
 
-LinearRegression finds slope and intercept parameters of linear function by minimizing mean square error.
+LinearRegression finds slope and intercept parameters of linear function
+by minimizing mean square error.
 
-Value at y is calculated using C<y = slope × x + intercept>
+Value at y is calculated using C<y = slope × x + intercept>.
 
 =head1 TODO
 
@@ -91,12 +103,16 @@ Value at y is calculated using C<y = slope × x + intercept>
 
 =head1 AUTHOR
 
-Paweł Szulc <pawel_szulc@onet.pl>
+Paweł Szulc
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2016 Paweł Szulc
+Copyright 2016 -2017 Paweł Szulc
+
+Copyright 2024 Raku Community
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
 =end pod
+
+# vim: expandtab shiftwidth=4

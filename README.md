@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/hipek8/p6-Statistics-LinearRegression.svg?branch=master)](https://travis-ci.org/hipek8/p6-Statistics-LinearRegression)
+[![Actions Status](https://github.com/raku-community-modules/Statistics-LinearRegression/actions/workflows/linux.yml/badge.svg)](https://github.com/raku-community-modules/Statistics-LinearRegression/actions) [![Actions Status](https://github.com/raku-community-modules/Statistics-LinearRegression/actions/workflows/macos.yml/badge.svg)](https://github.com/raku-community-modules/Statistics-LinearRegression/actions) [![Actions Status](https://github.com/raku-community-modules/Statistics-LinearRegression/actions/workflows/windows.yml/badge.svg)](https://github.com/raku-community-modules/Statistics-LinearRegression/actions)
 
 NAME
 ====
@@ -10,28 +10,34 @@ SYNOPSIS
 
 Gather some data
 
-    my @arguments = 1,2,3;
-    my @values = 3,2,1;
+```raku
+my @arguments = 1,2,3;
+my @values = 3,2,1;
+```
 
 Build model and predict value for some x using object
 
-    use Statistics::LinearRegression;
-    my $x = 15;
-    my $y = my LR.new(@arguments, @values).at($x);
+```raku
+use Statistics::LinearRegression;
+my $x = 15;
+my $y = my LR.new(@arguments, @values).at($x);
+```
 
 If you prefer bare functions, use :ALL
 
-    use Statistics::LinearRegression :ALL;
-    my ($slope, $intercept) = get-parameters(@arguments, @values);
-    my $x = 15;
-    my $y = value-at($x, $slope, $intercept);
+```raku
+use Statistics::LinearRegression :ALL;
+my ($slope, $intercept) = get-parameters(@arguments, @values);
+my $x = 15;
+my $y = value-at($x, $slope, $intercept);
+```
 
 DESCRIPTION
 ===========
 
 LinearRegression finds slope and intercept parameters of linear function by minimizing mean square error.
 
-Value at y is calculated using `y = slope × x + intercept`
+Value at y is calculated using `y = slope × x + intercept`.
 
 TODO
 ====
@@ -48,11 +54,14 @@ CHANGES
 AUTHOR
 ======
 
-Paweł Szulc <pawel_szulc@onet.pl>
+Paweł Szulc
 
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2016 Paweł Szulc
+Copyright 2016 -2017 Paweł Szulc
+
+Copyright 2024 Raku Community
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
+
