@@ -1,17 +1,17 @@
 unit class Statistics::LinearRegression;
 
-sub prefix:<Σ> { [+]($^a);}
-sub Σ(@a) { [+](@a); }
+sub prefix:<Σ>(\a) { a.sum }
+sub Σ(*@a) { @a.sum }
 
 sub calc-slope(@x, @y) is export(:ALL) {
     my \N = +@x;
     my $n = N * Σ(@x Z* @y) - Σ@x*Σ@y;
     my $d = N * Σ@x.map(*²) - (Σ@x)²;
-    $n/$d;
+    $n/$d
 }
 
 sub calc-intercept(@x, @y, $slope) is export(:ALL) {
-    (Σ@y - $slope * Σ@x) / @x;
+    (Σ@y - $slope * Σ@x) / @x
 }    
 
 sub get-parameters(@x, @y) is export(:ALL) {
@@ -21,7 +21,7 @@ sub get-parameters(@x, @y) is export(:ALL) {
 }
 
 sub value-at($x, $slope, $intercept) is export(:ALL) {
-    $x*$slope + $intercept;
+    $x*$slope + $intercept
 }
 
 class LR is export {
